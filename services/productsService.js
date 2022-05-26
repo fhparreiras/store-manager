@@ -1,11 +1,5 @@
 const productsModel = require('../models/productsModel');
 
-const getProducts = () => {
-    // if (id) {
-    //     return productsModel.getById(id);
-    // }
-    console.log('Tentando a getProducts');
-    return productsModel.getAll();
-};
+const getProducts = () => productsModel.getAll();
 
 module.exports = { getProducts };
