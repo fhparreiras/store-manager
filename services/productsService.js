@@ -1,5 +1,12 @@
 const productsModel = require('../models/productsModel');
 
-const getProducts = () => productsModel.getAll();
+const getProducts = (id = null) => {
+  if (id) {
+    return productsModel.getById(id);
+  }
+  return productsModel.getAll();
+};
 
-module.exports = { getProducts };
+const getProductsById = () => productsModel.getById();
+
+module.exports = { getProducts, getProductsById };
