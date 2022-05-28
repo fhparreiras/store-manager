@@ -17,4 +17,18 @@ routes.get('/sales', async (req, res) => {
   }
 });
 
+routes.get('/sales/:id', async (req, res) => {
+  try {
+    console.log('Entrou no try do GETSALES');
+      const { id } = req.params;
+      const rows = await salesService.getSales(id); // acessa camada de model para trazer as sales do db
+      if (rows.length === 0) {
+        throw new Error();
+      }
+      res.status(200).json(rows);
+  } catch (error) {
+      res.status(404).json({ message: 'Sale not found' });
+  }
+});
+
 module.exports = routes;
