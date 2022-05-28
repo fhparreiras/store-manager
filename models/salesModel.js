@@ -7,7 +7,7 @@ const serialize = (data) => ({
   date: data.date,
 });
 
-// buscar todas vendas no banco
+// busca todas vendas no banco
 const getAll = async () => {
   console.log('ENTROU NA GETALL do models');
   const [sales] = await connection.execute(`SELECT p.sale_id, p.product_id, p.quantity, s.date
