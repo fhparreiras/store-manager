@@ -14,6 +14,9 @@ const getAll = async () => {
   FROM StoreManager.sales_products AS p
   LEFT JOIN StoreManager.sales AS s
   ON s.id = p.sale_id`);
+  if (sales.length === 0) {
+    return [[]];
+  }
   const result = sales.map(serialize);
   return result;
 };

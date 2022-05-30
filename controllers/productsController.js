@@ -2,7 +2,6 @@ const express = require('express');
 
 const routes = express.Router();
 
-// const productsModel = require('../models/productsModel');
 const productsService = require('../services/productsService');
 
 // Rota para pegar todos produtos
