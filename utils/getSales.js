@@ -7,7 +7,7 @@ const getSales = async (req, res) => {
       const rows = await salesService.getSales();
       res.status(200).json(rows);
   } catch (error) {
-      res.status(404).json({ message: 'Sales not found' });
+      res.status(404).send({ message: 'Sales not found' });
   }
 };
 

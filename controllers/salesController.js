@@ -11,4 +11,4 @@ routes.get('/sales', getSales);
 
 routes.get('/sales/:id', getSalesById);
 
-module.exports = routes;
+module.exports = { routes, getSales, getSalesById };
