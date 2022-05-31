@@ -7,6 +7,7 @@ const salesController = require('../controllers/salesController');
 
 routes.use('/', salesController);
 
-routes.use('/', productsController);
+routes.use('/products/:id', productsController.getProductsById);
+routes.use('/products', productsController.getProducts);
 
 module.exports = routes;
