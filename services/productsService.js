@@ -9,4 +9,12 @@ const getProducts = (id = null) => {
 
 const getProductsById = () => productsModel.getById();
 
-module.exports = { getProducts, getProductsById };
+const checkIfExists = async (productName) => {
+  const [db] = await getProducts();
+  // console.log('name: ', productName);
+  // console.log('TESTE DB CHECK: ', db);
+  // console.log('teste retorno db some: ', db.some((product) => product.name === productName));
+  return db.some((product) => product.name === productName);
+};
+
+module.exports = { checkIfExists, getProducts, getProductsById };

@@ -5,10 +5,11 @@ const routes = express.Router();
 const productsController = require('../controllers/productsController');
 const salesController = require('../controllers/salesController');
 
-routes.use('/sales/:id', salesController.getSalesById);
-routes.use('/sales', salesController.getSales);
+routes.get('/sales/:id', salesController.getSalesById);
+routes.get('/sales', salesController.getSales);
 
-routes.use('/products/:id', productsController.getProductsById);
-routes.use('/products', productsController.getProducts);
+routes.get('/products/:id', productsController.getProductsById);
+routes.get('/products', productsController.getProducts);
+routes.post('/products', productsController.createProduct);
 
 module.exports = routes;

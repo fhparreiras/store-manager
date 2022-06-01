@@ -9,4 +9,12 @@ const getById = (id) => {
   return connection.execute('SELECT * FROM StoreManager.products WHERE id = ?', [id]);
 };
 
-module.exports = { getAll, getById };
+const dbCreateProduct = (name, quantity) => {
+  console.log('ENTROU NO INSERT DO CREATE PRODUCT');
+  return connection.execute(
+    'INSERT INTO StoreManager.products (name, quantity) VALUES (?, ?)',
+    [name, quantity],
+  );
+};
+
+module.exports = { dbCreateProduct, getAll, getById };
