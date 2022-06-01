@@ -5,8 +5,7 @@ const createProduct = async (req, res) => {
   try {
     const { name, quantity } = req.body;
     if (await productsService.checkIfExists(name)) {
-      console.log('ENTROU NO IF INDESEJADO');
-      const errorMessage = {
+      const errorMessage = { code: 409,
         message: 'Product already exists' };
       throw errorMessage;
     }
@@ -14,10 +13,10 @@ const createProduct = async (req, res) => {
     const [getId] = await productsService.getProducts();
     const { id } = getId[getId.length - 1];
     const newProduct = { id, name, quantity };
-    console.log('TESTE ID: ', id);
       res.status(201).json(newProduct);
   } catch (error) {
-      res.status(409).json({ message: error.message });
+    console.log('ERROR: ', error);
+      res.status(error.code).json({ message: error.message });
   }
 };
 

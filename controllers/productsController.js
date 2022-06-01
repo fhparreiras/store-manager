@@ -1,4 +1,5 @@
 const express = require('express');
+const { errorHandler, validateProductQuery } = require('../middlewares');
 
 const routes = express.Router();
 
@@ -12,6 +13,6 @@ routes.get('/products', getProducts);
 routes.get('/products/:id', getProductsById);
 
 // Rota para registrar produto
-routes.post('/products', createProduct);
+routes.post('/products', validateProductQuery, createProduct, errorHandler);
 
-module.exports = { routes, createProduct, getProducts, getProductsById };
+module.exports = { routes, createProduct, errorHandler, getProducts, getProductsById };
