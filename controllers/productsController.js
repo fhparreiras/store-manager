@@ -1,5 +1,5 @@
 const express = require('express');
-const { errorHandler, validateProductQuery } = require('../middlewares');
+// const { errorHandler, validateProductQuery } = require('../middlewares');
 
 const routes = express.Router();
 
@@ -14,7 +14,7 @@ routes.get('/products', getProducts);
 routes.get('/products/:id', getProductsById);
 
 // Rota para registrar produto
-routes.post('/products', validateProductQuery, createProduct, errorHandler);
+routes.post('/products', createProduct);
 
 // Rota para atualizar produto
 routes.put('/products/:id', updateProducts);
@@ -26,7 +26,7 @@ module.exports = {
   routes,
   createProduct,
   deleteProducts,
-  errorHandler,
+  // errorHandler,
   getProducts,
   getProductsById,
   updateProducts };
