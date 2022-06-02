@@ -34,4 +34,10 @@ const updateProduct = async (name, quantity, id) => {
   return result.affectedRows;
 };
 
-module.exports = { dbCreateProduct, dbGetByName, getAll, getById, updateProduct };
+const deleteProduct = async (id) => connection.execute(
+  `DELETE FROM StoreManager.products
+  WHERE id = ?`,
+  [id],
+);
+
+module.exports = { dbCreateProduct, dbGetByName, deleteProduct, getAll, getById, updateProduct };

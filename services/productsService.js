@@ -19,9 +19,6 @@ const checkIfExists = async (productName) => {
 
 const checkIfExistsId = async (id) => {
   const [db] = await getProducts();
-  // console.log('name: ', id);
-  // console.log('TESTE DB CHECK: ', db);
-  // console.log('teste retorno db some: ', db.some((product) => product.name === id));
   return db.some((product) => product.id === id);
 };
 
@@ -30,4 +27,13 @@ const updateProducts = async (name, quantity, id) => {
   return result;
 };
 
-module.exports = { checkIfExists, checkIfExistsId, getProducts, getProductsById, updateProducts };
+const deleteProducts = async (id) => productsModel.deleteProduct(id);
+
+module.exports = {
+  checkIfExists,
+  checkIfExistsId,
+  deleteProducts,
+  getProducts,
+  getProductsById,
+  updateProducts,
+};

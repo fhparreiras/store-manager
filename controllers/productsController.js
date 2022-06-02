@@ -4,7 +4,8 @@ const { errorHandler, validateProductQuery } = require('../middlewares');
 const routes = express.Router();
 
 // const productsService = require('../services/productsService');
-const { createProduct, getProducts, getProductsById, updateProducts } = require('../utils/index');
+const { createProduct, deleteProducts, getProducts, getProductsById,
+  updateProducts } = require('../utils/index');
 
 // Rota para pegar todos produtos
 routes.get('/products', getProducts);
@@ -18,9 +19,13 @@ routes.post('/products', validateProductQuery, createProduct, errorHandler);
 // Rota para atualizar produto
 routes.put('/products/:id', updateProducts);
 
+// Rota para deletar produto
+routes.delete('/products/:id', deleteProducts);
+
 module.exports = {
   routes,
   createProduct,
+  deleteProducts,
   errorHandler,
   getProducts,
   getProductsById,
