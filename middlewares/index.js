@@ -1,9 +1,9 @@
 const validateProductQuery = require('./validateProductQuery');
 const validateSaleQuery = require('./validateSaleQuery');
-// const errorHandler = require('./errorHandler');
+const errorHandler = require('./errorHandler');
 
 module.exports = {
-  // errorHandler,
+  errorHandler,
   validateProductQuery,
   validateSaleQuery,
 };

@@ -1,5 +1,5 @@
 const express = require('express');
-// const { errorHandler, validateProductQuery } = require('../middlewares');
+const { errorHandler } = require('../middlewares');
 
 const routes = express.Router();
 
@@ -26,7 +26,7 @@ module.exports = {
   routes,
   createProduct,
   deleteProducts,
-  // errorHandler,
+  errorHandler,
   getProducts,
   getProductsById,
   updateProducts };

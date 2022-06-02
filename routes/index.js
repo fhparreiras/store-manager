@@ -5,16 +5,16 @@ const routes = express.Router();
 const productsController = require('../controllers/productsController');
 const salesController = require('../controllers/salesController');
 
-// const { errorHandler, validateProductQuery } = require('../middlewares/index');
+const { errorHandler } = require('../middlewares/index');
 
-routes.get('/sales/:id', salesController.getSalesById);
-routes.get('/sales', salesController.getSales);
-routes.post('/sales', salesController.createSale);
+routes.get('/sales/:id', salesController.getSalesById, errorHandler);
+routes.get('/sales', salesController.getSales, errorHandler);
+routes.post('/sales', salesController.createSale, errorHandler);
 
-routes.get('/products/:id', productsController.getProductsById);
-routes.get('/products', productsController.getProducts);
-routes.post('/products', productsController.createProduct);
-routes.put('/products/:id', productsController.updateProducts);
-routes.delete('/products/:id', productsController.deleteProducts);
+routes.get('/products/:id', productsController.getProductsById, errorHandler);
+routes.get('/products', productsController.getProducts, errorHandler);
+routes.post('/products', productsController.createProduct, errorHandler);
+routes.put('/products/:id', productsController.updateProducts, errorHandler);
+routes.delete('/products/:id', productsController.deleteProducts, errorHandler);
 
 module.exports = routes;
