@@ -2,12 +2,15 @@ const express = require('express');
 
 const routes = express.Router();
 
-const { getSales, getSalesById } = require('../utils/index');
+const { createSale, getSales, getSalesById } = require('../utils/index');
 
-// Rota para pegar todos produtos
+// Rota para pegar todas as vendas
 routes.get('/sales', getSales);
 
-// Rota para pegar os produtos por id
+// Rota para pegar as vendas por id
 routes.get('/sales/:id', getSalesById);
 
-module.exports = { routes, getSales, getSalesById };
+// Rota para criar vendas
+routes.post('/sales', createSale);
+
+module.exports = { routes, createSale, getSales, getSalesById };

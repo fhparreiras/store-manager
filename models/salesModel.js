@@ -31,4 +31,11 @@ const getById = async (id) => {
   return result;
 };
 
-module.exports = { getAll, getById };
+const dbCreateSale = () => {
+  // connection.execute(
+  //   'INSERT INTO StoreManager.sales (name, quantity) VALUES (?, ?)',
+  //   [name, quantity],
+  // );
+};
+
+module.exports = { dbCreateSale, getAll, getById };

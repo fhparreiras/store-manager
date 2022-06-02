@@ -9,7 +9,7 @@ const deleteProduct = async (req, res) => {
       throw errorMessage;
     }
     productsService.deleteProducts(parseInt(id, 10));
-      res.status(204).end();
+      res.status(204).json();
   } catch (error) {
     console.log('ERROR: ', error);
       res.status(error.code).json({ message: error.message });
