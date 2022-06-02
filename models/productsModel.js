@@ -17,4 +17,21 @@ const dbCreateProduct = (name, quantity) => {
   );
 };
 
-module.exports = { dbCreateProduct, getAll, getById };
+const dbGetByName = (name) => {
+  console.log('Entrou na getByName');
+  return connection.execute(
+    'SELECT * FROM StoreManager.products WHERE name = ?', [name],
+  );
+};
+
+const updateProduct = async (name, quantity, id) => {
+  const [result] = await connection.execute(
+    `UPDATE StoreManager.products
+      SET name = ?, quantity = ?
+      WHERE id = ?`,
+    [name, quantity, id],
+  );
+  return result.affectedRows;
+};
+
+module.exports = { dbCreateProduct, dbGetByName, getAll, getById, updateProduct };
