@@ -9,6 +9,7 @@ const { errorHandler, validateProductQuery } = require('../middlewares/index');
 
 routes.get('/sales/:id', salesController.getSalesById);
 routes.get('/sales', salesController.getSales);
+routes.post('/sales', salesController.createSales);
 
 routes.get('/products/:id', productsController.getProductsById);
 routes.get('/products', productsController.getProducts);
