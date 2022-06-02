@@ -31,11 +31,23 @@ const getById = async (id) => {
   return result;
 };
 
-const dbCreateSale = () => {
-  // connection.execute(
-  //   'INSERT INTO StoreManager.sales (name, quantity) VALUES (?, ?)',
-  //   [name, quantity],
-  // );
+const dbCreateSale = async (date, productId, quantity) => {
+  console.log('Entrou na dbCreateSale');
+  await connection.execute(
+    'INSERT INTO StoreManager.sales (date) VALUES (?)',
+    [date],
+  );
+  console.log('Entrou na parte 2 da dbCreateSale');
+  const getId = await getAll();
+  const id = getId[getId.length - 1].saleId;
+  console.log('TESTE GETID: ', id);
+  const salesProducts = await connection.execute(
+    'INSERT INTO StoreManager.sales_products (sale_id, product_id, quantity) VALUES (?, ?, ?)',
+    [id, productId, quantity],
+  );
+  return console.log(salesProducts);
 };
+
+// dbCreateSale('2022-06-02 23:50:43', 1, 23);
 
 module.exports = { dbCreateSale, getAll, getById };

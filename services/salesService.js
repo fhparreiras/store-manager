@@ -9,4 +9,9 @@ const getSales = async (id = null) => {
   return result;
 };
 
-module.exports = { getSales };
+const createSales = async (date, productId, quantity) => {
+  const result = await salesModel.dbCreateSale(date, productId, quantity);
+  return result;
+};
+
+module.exports = { createSales, getSales };
